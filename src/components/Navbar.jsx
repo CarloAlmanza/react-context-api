@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import BudgetButton from './BudgetButton'
+import BudgetInput from './BudgetInput'
 
 function AppNavbar() {
     const getNavClass = ({ isActive }) =>
@@ -53,7 +53,7 @@ function AppNavbar() {
                             Carrello
                         </NavLink>
 
-                        <BudgetButton />
+                        <BudgetInput />
                     </div>
                 </div>
             </div>

@@ -7,14 +7,15 @@ export const BudgetContext =
     createContext()
 
 function BudgetProvider({ children }) {
-    const [budgetMode, setBudgetMode] =
-        useState(false)
+    // null = nessun filtro
+    const [maxPrice, setMaxPrice] =
+        useState(null)
 
     return (
         <BudgetContext.Provider
             value={{
-                budgetMode,
-                setBudgetMode,
+                maxPrice,
+                setMaxPrice,
             }}
         >
             {children}

@@ -20,7 +20,7 @@ function ProductsPage() {
         useState('')
 
     // CONTEXT
-    const { budgetMode } =
+    const { maxPrice } =
         useContext(BudgetContext)
 
     useEffect(() => {
@@ -59,14 +59,15 @@ function ProductsPage() {
                 selectedCategory === '' ||
                 product.category === selectedCategory
 
-            // BUDGET MODE
-            const matchesBudget =
-                !budgetMode || product.price <= 30
+            // MAX PRICE
+            const matchesPrice =
+                maxPrice === null ||
+                product.price <= maxPrice
 
             return (
                 matchesSearch &&
                 matchesCategory &&
-                matchesBudget
+                matchesPrice
             )
         }
     )
@@ -77,12 +78,12 @@ function ProductsPage() {
                 Prodotti
             </h1>
 
-            {/* ALERT BUDGET */}
-            {budgetMode && (
+            {/* ALERT */}
+            {maxPrice !== null && (
                 <div className="alert alert-warning">
-                    Modalità Budget attiva:
-                    vengono mostrati solo prodotti
-                    con prezzo inferiore o uguale a €30
+                    Visualizzazione prodotti con
+                    prezzo massimo di €
+                    {maxPrice}
                 </div>
             )}
 
