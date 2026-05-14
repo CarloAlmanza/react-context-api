@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-import BudgetToggle from './BudgetToggle'
+import BudgetButton from './BudgetButton'
 
 function AppNavbar() {
     const getNavClass = ({ isActive }) =>
@@ -18,8 +18,20 @@ function AppNavbar() {
                     FakeStore
                 </NavLink>
 
-                <div className="d-flex align-items-center gap-3">
-                    <div className="navbar-nav">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div
+                    className="collapse navbar-collapse"
+                    id="navbarNav"
+                >
+                    <div className="navbar-nav ms-auto d-flex align-items-center gap-3">
                         <NavLink
                             to="/"
                             className={getNavClass}
@@ -40,9 +52,9 @@ function AppNavbar() {
                         >
                             Carrello
                         </NavLink>
-                    </div>
 
-                    <BudgetToggle />
+                        <BudgetButton />
+                    </div>
                 </div>
             </div>
         </nav>
